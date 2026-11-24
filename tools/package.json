@@ -1,0 +1,13 @@
+{
+  "name": "koko-wa-nan-han-tools",
+  "private": true,
+  "description": "「ここは何藩？」のデータ作成用ツール",
+  "scripts": {
+    "build-budoux": "esbuild budoux-entry.mjs --bundle --minify --format=iife --legal-comments=inline --outfile=../vendor/budoux-ja-parser.min.js"
+  },
+  "devDependencies": {
+    "budoux": "0.7.0",
+    "esbuild": "0.24.2",
+    "mapshaper": "0.6.121"
+  }
+}

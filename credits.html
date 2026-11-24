@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#2b2118">
+<title>出典・注意 | ここは何藩？</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="bar">
+  <h1 class="title"><span class="nw">出典・注意</span></h1>
+  <nav class="bar-links"><a href="./" class="nw">地図に戻る</a></nav>
+</header>
+
+<main class="page">
+<div id="content">
+
+<h2>このアプリについて</h2>
+<p>「ここは何藩？」は、現在地や地図上でタップした地点が、<span class="nw">慶応4年1月1日</span>（<span class="nw">1868年1月25日</span>）の時点でどの旧国・どの藩（天領・旗本領・寺社領などを含む）の領地だったかを表示する試作版です。</p>
+
+<h2>表示内容についての注意</h2>
+<ul>
+  <li>領地の境界は、<span class="nw">2015年</span>の農業集落の境界をもとに、江戸時代の村を当てはめて推定したものです。当時の実際の境界とは異なることがあります。</li>
+  <li>地図を軽くするため、境界線を簡略化しています。境界の近くでは、隣の村の結果が表示されることがあります。</li>
+  <li>ひとつの村を複数の領主が分けて支配していた場合（相給）は、石高の大きい順にすべて表示します。地図の色は、石高がいちばん大きい領主で塗り分けています。</li>
+  <li>北海道と沖縄は元データに含まれていないため、表示されません。</li>
+  <li>旧国は、元データの国名をもとに表示しています。陸奥国・出羽国は明治元年12月に分割されたため、分割後の国名もあわせて表示します。</li>
+  <li>藩主名は、Wikipedia日本語版の各藩の記事にある「歴代藩主」から、<span class="nw">慶応4年1月1日</span>に在任していた人を自動で推定し、一部を手作業で補正したものです。誤りが含まれている可能性があります。</li>
+  <li>元データの説明によると、一部の藩は意図的に変動前の領分のまま記載されています（例：<span class="nw">豊前小倉藩</span>、<span class="nw">石見浜田藩</span>、<span class="nw">常陸宍戸藩</span>、<span class="nw">陸奥白河藩</span>）。</li>
+</ul>
+
+<h2>データの出典</h2>
+
+<h3>藩などの領域</h3>
+<div class="src">
+  <p><a href="https://github.com/yaoyue00085856/Kyudaka_agrivillage" target="_blank" rel="noopener">幕末期近世村領域データ</a>（02_kyudaka_v2.01）<br>作成：本田謙一氏</p>
+  <p>ライセンス：<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.ja" target="_blank" rel="noopener">CC BY-SA 4.0</a></p>
+  <p>論文：本田謙一・夏目宗幸・根元裕樹「<a href="https://doi.org/10.5638/thagis.34.1.1" target="_blank" rel="noopener">幕末期近世村領域データの作成―旧高旧領取調帳および農業集落境界データを活用して―</a>」<wbr><span class="nw">『GIS-理論と応用』</span><wbr><span class="nw">34巻1号</span> <wbr><span class="nw">p.1-10</span></p>
+  <p>加工内容：農業集落境界データと結合し、同じ旧国・同じ領主の組み合わせの村をまとめて一つの領域にしたうえで、境界線を簡略化しました。</p>
+</div>
+
+<h3>領域の形（農業集落の境界）</h3>
+<div class="src">
+  <p>農林水産省「<a href="https://www.maff.go.jp/j/tokei/census/shuraku_data/2015/ma/index.html" target="_blank" rel="noopener">地域の農業を見て・知って・活かすDB</a>」の農業集落境界データ（2015年農林業センサス）を加工して作成</p>
+  <p>編集・加工者：「ここは何藩？」試作版の作成者</p>
+</div>
+
+<h3>旧高旧領取調帳</h3>
+<div class="src">
+  <p>上記の幕末期近世村領域データは、国立歴史民俗博物館の<a href="https://www.rekihaku.ac.jp/doc/t-db-index.html" target="_blank" rel="noopener">旧高旧領取調帳データベース</a>などをもとに作成されています。</p>
+</div>
+
+<h3>藩ID</h3>
+<div class="src">
+  <p>『<a href="https://codh.rois.ac.jp/han/" target="_blank" rel="noopener">藩IDデータセット</a>』（<span class="nw">ROIS-DS</span><wbr><span class="nw">人文学オープンデータ</span><wbr><span class="nw">共同利用センター作成）</span><wbr><span class="nw">doi:10.20676/00000465</span></p>
+  <p>ライセンス：<a href="https://creativecommons.org/licenses/by/4.0/deed.ja" target="_blank" rel="noopener">CC BY 4.0</a></p>
+  <p>領分の名前と藩IDの対応は、『<a href="https://geoshape.ex.nii.ac.jp/av/" target="_blank" rel="noopener">幕末期近世村領域データセット</a>』（CODH作成、<span class="nw">CC BY-SA 4.0</span>）の<a href="https://geoshape.ex.nii.ac.jp/av/han/" target="_blank" rel="noopener">藩一覧</a>を参照しました。</p>
+</div>
+
+<h3>旧国の境界</h3>
+<div class="src">
+  <p>上記の幕末期近世村領域データにある村ごとの国名をもとに、農業集落の境界を国ごとにまとめて作成しました（藩の領域と同じ元データ・同じ<span class="nw">CC BY-SA 4.0</span>）。</p>
+</div>
+
+<h3>藩主名・解説へのリンク</h3>
+<div class="src">
+  <p><a href="https://ja.wikipedia.org/" target="_blank" rel="noopener">Wikipedia日本語版</a>の各記事（<span class="nw">CC BY-SA 4.0</span>）を参照しました。</p>
+</div>
+
+<h3>背景地図</h3>
+<div class="src">
+  <p><a href="https://maps.gsi.go.jp/development/ichiran.html" target="_blank" rel="noopener">地理院タイル</a>（淡色地図）国土地理院</p>
+</div>
+
+<h3>使用しているソフトウェア</h3>
+<div class="src">
+  <p><a href="https://leafletjs.com/" target="_blank" rel="noopener">Leaflet</a>（<span class="nw">BSD-2-Clause</span>）、<a href="https://github.com/topojson/topojson-client" target="_blank" rel="noopener">topojson-client</a>（ISC）、<a href="https://github.com/google/budoux" target="_blank" rel="noopener">BudouX</a>（<span class="nw">Apache-2.0</span>）</p>
+</div>
+
+<h2>このアプリのデータのライセンス</h2>
+<p>このアプリが使っている加工済みデータ（<span class="nw">data/</span>フォルダ）は、元データのライセンスを引き継ぎ、<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.ja" target="_blank" rel="noopener">CC BY-SA 4.0</a>で提供します。</p>
+
+</div>
+</main>
+<script src="vendor/budoux-ja-parser.min.js"></script>
+<script src="assets/phrase.js"></script>
+<script>Phrase.apply(document.getElementById('content'));</script>
+</body>
+</html>

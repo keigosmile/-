@@ -1,0 +1,121 @@
+:root {
+  --ink: #2b2118;
+  --paper: #fbf7ef;
+  --line: #d9cfbd;
+  --accent: #a2322a;
+  --muted: #6d6254;
+  --link: #1f5c99;
+  --sheet-max: 48vh;
+  color-scheme: light;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  height: 100%;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", sans-serif;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* 改行の制御：
+   - .nw の中では絶対に改行しない（語句・カッコ付きの名前・日付をまとめる）
+   - assets/phrase.js が BudouX で文節に分け、文節の切れ目にだけ改行位置（<wbr>）を入れる
+   - line-break: strict で、閉じカッコ・句読点などの行頭禁則を厳しめに */
+body { line-break: strict; word-break: keep-all; overflow-wrap: anywhere; }
+.nw { white-space: nowrap; }
+
+a { color: var(--link); }
+
+.bar {
+  position: fixed; z-index: 1000; top: 0; left: 0; right: 0;
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: calc(env(safe-area-inset-top) + 8px) 16px 8px;
+  background: rgba(43, 33, 24, .92);
+  color: #fff;
+}
+.title { margin: 0; font-size: 18px; letter-spacing: .04em; font-weight: 700; }
+.bar-links a { color: #f3e6cf; font-size: 14px; }
+
+#map {
+  position: fixed; inset: 0;
+  background: #e9e4da;
+}
+
+.locate {
+  position: fixed; z-index: 1000;
+  right: 16px;
+  bottom: calc(var(--sheet-h, 120px) + 16px);
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 10px 16px;
+  border: 0; border-radius: 999px;
+  background: var(--accent); color: #fff;
+  font: inherit; font-size: 15px; font-weight: 700;
+  box-shadow: 0 2px 10px rgba(0,0,0,.25);
+  cursor: pointer;
+  transition: bottom .2s ease;
+}
+.locate:disabled { opacity: .6; }
+
+.sheet {
+  position: fixed; z-index: 1000; left: 0; right: 0; bottom: 0;
+  max-height: var(--sheet-max);
+  overflow-y: auto; -webkit-overflow-scrolling: touch;
+  padding: 14px 16px calc(env(safe-area-inset-bottom) + 14px);
+  background: var(--paper);
+  border-top: 1px solid var(--line);
+  border-radius: 16px 16px 0 0;
+  box-shadow: 0 -4px 16px rgba(0,0,0,.12);
+  font-size: 15px; line-height: 1.65;
+}
+@media (min-width: 720px) {
+  .sheet { left: 16px; right: auto; bottom: 16px; width: 400px; border-radius: 16px; border: 1px solid var(--line); max-height: calc(100vh - 100px); }
+  .locate { bottom: 24px; }
+}
+
+.lead { margin: 0 0 6px; }
+.status { margin: 0; color: var(--muted); font-size: 13px; }
+.status.err { color: var(--accent); }
+
+.sec { margin: 0 0 12px; }
+.sec:last-child { margin-bottom: 0; }
+.sec-h {
+  margin: 0 0 4px;
+  font-size: 12px; font-weight: 700; color: var(--muted); letter-spacing: .06em;
+}
+.big { font-size: 22px; font-weight: 700; line-height: 1.35; margin: 0; }
+.big a { color: inherit; text-decoration-color: rgba(0,0,0,.25); }
+.note { margin: 2px 0 0; font-size: 13px; color: var(--muted); }
+
+.rb-list { list-style: none; margin: 0; padding: 0; }
+.rb {
+  padding: 10px 12px; margin: 0 0 8px;
+  border: 1px solid var(--line); border-left: 6px solid var(--c, #999);
+  border-radius: 10px; background: #fff;
+}
+.rb-name { margin: 0; font-size: 18px; font-weight: 700; line-height: 1.4; }
+.rb-row { margin: 2px 0 0; font-size: 14px; }
+.rb-row .k { color: var(--muted); margin-right: .4em; }
+.links { margin: 4px 0 0; font-size: 13px; }
+.links a + a { margin-left: 12px; }
+
+.coord { font-size: 12px; color: var(--muted); margin: 8px 0 0; }
+
+.prov-label {
+  background: none; border: 0; box-shadow: none;
+  font-size: 13px; font-weight: 700; color: #3a2a1a;
+  text-shadow: 0 0 3px #fff, 0 0 3px #fff, 0 0 3px #fff;
+  white-space: nowrap; pointer-events: none;
+}
+.leaflet-tooltip.prov-label::before { display: none; }
+
+/* 出典ページ */
+.page { max-width: 760px; margin: 0 auto; padding: calc(env(safe-area-inset-top) + 64px) 16px 48px; line-height: 1.8; }
+.page h2 { font-size: 18px; margin: 32px 0 8px; border-bottom: 1px solid var(--line); padding-bottom: 4px; }
+.page h3 { font-size: 15px; margin: 20px 0 4px; }
+.page p, .page li { font-size: 15px; }
+.page ul { padding-left: 1.2em; }
+.page .src { background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 10px 14px; margin: 8px 0; }
+.page .src p { margin: 2px 0; }
