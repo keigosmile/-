@@ -251,10 +251,12 @@
   Phrase.apply(body);
   setSheetHeight();
   window.addEventListener('resize', setSheetHeight);
-  Promise.all([
+  // アプリ版（ローカルのHTMLを直接開く場合）は data/data.js に埋め込んだデータを使う。Web版は fetch で読む
+  var embedded = window.KOKOHAN_DATA;
+  (embedded ? Promise.resolve([embedded.han, embedded.topo]) : Promise.all([
     fetch('data/han.json').then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); }),
     fetch('data/ryobun.topojson').then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
-  ]).then(function (res) {
+  ])).then(function (res) {
     RB = res[0].ryobun;
     drawData(res[1]);
     setStatus('準備ができました。');
